@@ -106,6 +106,27 @@ In a nutshell::
     (32.0, 19.0, 42.290400)
 
 You can also control the precision of the MGRS grid with the MGRSPrecision
-arguments in .toMGRS().  Other than that, there isn't too much to it.
+arguments in .toMGRS().
+MGRSPrecision takes an integer as input, ranking from 0 to 5, 5 being the most precise conversion. 
+- MGRSPrecision=5: 1m precision (10 digits: 5 for easting and 5 for northing)
+- MGRSPrecision=4: 10m precision (8 digits: 4 for easting and 4 for northing)
+- MGRSPrecision=3: 100m precision (6 digits: 3 for easting and 3 for northing)
+- MGRSPrecision=2: 1km precision (4 digits: 2 for easting and 2 for northing)
+- MGRSPrecision=1: 10km precision (2 digits: 1 for easting and 1 for northing)
+- MGRSPrecision=0: 100km precision (no digits for easting and northing, just the grid letters)
+
+Example
+------------------------------------------------------------------------------
+
+5 vs 0 MGRSPrecision setting::
+
+    >>> m = mgrs.MGRS()
+    >>> c = m.toMGRS(latitude, longitude, 5)
+    >>> c
+    '15TWG0000049776'
 
 
+    >>> m = mgrs.MGRS()
+    >>> c = m.toMGRS(latitude, longitude, 0)
+    >>> c
+    '15TWG'
