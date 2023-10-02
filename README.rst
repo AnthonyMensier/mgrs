@@ -105,6 +105,9 @@ In a nutshell::
     >>> d, m, s
     (32.0, 19.0, 42.290400)
 
+Notes
+------------------------------------------------------------------------------
+
 You can also control the precision of the MGRS grid with the MGRSPrecision
 arguments in .toMGRS().
 MGRSPrecision takes an integer as input, ranking from 0 to 5, 5 being the most precise conversion. 
